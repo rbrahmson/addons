@@ -115,55 +115,6 @@ class ParticipatedPlugin extends Gdn_Plugin {
     }
 
     /**
-     * Add navigation tab.
-     *
-     * @deprecated
-     * @param mixed $sender
-     */
-    public function addParticipatedTab($sender) {
-        $myParticipated = t('Participated Discussions');
-        $attributes = [];
-
-        if ($sender->RequestMethod == 'participated') {
-            $attributes['class'] = 'Active';
-        }
-
-        $result = wrap(
-            anchor($myParticipated, '/discussions/participated', 'MyParticipated TabLink'),
-            'li',
-            $attributes
-        );
-        echo $result;
-    }
-
-    /**
-     * Handle the AfterDiscussionTabs event on /discussions pages.
-     *
-     * @param DiscussionsController $sender
-     */
-    public function discussionsController_afterDiscussionTabs_handler($sender) {
-        $this->addParticipatedTab($sender);
-    }
-
-    /**
-     * Handle the AfterDiscussionTabs event on /categories pages.
-     *
-     * @param CategoriesController $sender
-     */
-    public function categoriesController_afterDiscussionTabs_handler($sender) {
-        $this->addParticipatedTab($sender);
-    }
-
-    /**
-     * Handle the AfterDiscussionTabs event on /drafts pages.
-     *
-     * @param DraftsController $sender
-     */
-    public function draftsController_afterDiscussionTabs_handler($sender) {
-        $this->addParticipatedTab($sender);
-    }
-
-    /**
      * New navigation menu item.
      *
      * @since 2.1
