@@ -382,8 +382,9 @@ class TrollManagementPlugin extends Gdn_Plugin {
 
             $troll = in_array($userID, $trolls) ? 1 : 0;
 
+//                'Text' => t(($troll) ? 'Unmark as Troll' : 'Mark as Troll'),
             $sender->EventArguments['ProfileOptions']['TrollToggle'] = [
-                'Text' => t(($troll) ? 'Unmark as Troll' : 'Mark as Troll'),
+                'Text' => t('Mark as Troll'),
                 'Url' => '/user/marktroll?userid=' . $userID . '&troll=' . (int) (!$troll),
                 'CssClass' => 'Hijack Button-Troll'
             ];
